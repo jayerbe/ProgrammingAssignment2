@@ -1,13 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Mi función
+## This fucntions takes an invertible matrix and has the capacity to store
+## the inverse of the given matrix
 
 makeCacheMatrix <- function(x = matrix()) {
-        s <- NULL
+        s <- NULL       ## variable to store the inverse of the given matrix
         set <- function (y) {
                 x <<-y
-                s <<-NULL
+                s <<-NULL ## We flush any store inverse previously stored
         }
         get <- function () x
         setsolve <- function(solve) s <<-solve
@@ -16,12 +14,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Mi función
+## This functions calculates the inverse (solve) of a given invertible matrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
         s <- x$getsolve()
-        if(!is.null(s)) {
+        if(!is.null(s)) { ## If the inverse is already cached, don't solve it again
                 message("getting cached data")
                 return(s)
         }
